@@ -9,17 +9,12 @@ export const Palette = ({ palette }) => {
 
   const changeLevel = (level) => setLevel(level);
 
-  const changeFormat = (e) => {
-    setFormat(e.target.value);
-    alert(e.target.value);
-  };
-
   return (
     <div className="Palette">
       <Navbar
         level={level}
         changeLevel={changeLevel}
-        handleChange={changeFormat}
+        setFormat={setFormat}
         format={format}
       />
       <div className="Palette-colors">
