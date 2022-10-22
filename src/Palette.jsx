@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { ColorBox } from "./ColorBox";
 import { Navbar } from "./Navbar";
 import "./Palette.css";
@@ -37,6 +36,8 @@ export const Palette = () => {
             key={color.name}
             background={color[format]}
             name={color.name}
+            id={color.id}
+            paletteId={palette.id}
           />
         ))}
       </div>
