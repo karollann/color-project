@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import CloseIcon from "@mui/icons-material/Close";
@@ -23,7 +24,7 @@ export const Navbar = ({ changeLevel, level, setFormat, format }) => {
   return (
     <header className="Navbar">
       <div className="logo">
-        <a href="#">reactcolorpickers</a>
+        <Link to="/">reactcolorpicker</Link>
       </div>
       <div className="slider-container">
         <div className="slider">
