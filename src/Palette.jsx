@@ -38,6 +38,7 @@ export const Palette = () => {
             name={color.name}
             id={color.id}
             paletteId={palette.id}
+            showLink={true}
           />
         ))}
       </div>
