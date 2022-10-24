@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { seedColors } from "./seedColors";
 import { generatePalette } from "./colorHelpers";
 import { ColorBox } from "./ColorBox";
@@ -25,25 +25,27 @@ export const SingleColorPalette = () => {
         (color) => color.id === colorToFilterBy
       );
       shades = shades.concat(filteredColorsPalette);
-      console.log(shades);
     }
     return shades.slice(1);
   };
 
-  console.log("paletteName", palette.paletteName);
-  console.log("emoji", palette.emoji);
   return (
-    <div className="Palette">
+    <div className="SingleColorPalette Palette">
       <Navbar setFormat={setFormat} format={format} />
       <div className="Palette-colors">
         {gatherShades(palette, colorId).map((color) => (
           <ColorBox
-            key={color.hex}
+            key={color.name}
             name={color.name}
             background={color[format]}
             showLink={false}
           />
         ))}
+        <div className="GoBack ColorBox">
+          <Link to={`/palette/${paletteId}`} className="back-button">
+            Go Back
+          </Link>
+        </div>
       </div>
       <PaletteFooter paletteName={palette.paletteName} emoji={palette.emoji} />
     </div>

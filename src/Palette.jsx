@@ -22,8 +22,7 @@ export const Palette = () => {
   const palette = generatePalette(findPalette(id));
 
   const changeLevel = (level) => setLevel(level);
-  console.log("paletteName", palette.paletteName);
-  console.log("emoji", palette.emoji);
+
   return (
     <div className="Palette">
       <Navbar
