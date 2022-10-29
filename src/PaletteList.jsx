@@ -9,6 +9,9 @@ export const PaletteList = () => {
       <div className="PaletteList-nav-container">
         <nav className="PaletteList-nav">
           <h1>React colors</h1>
+          <Link className="PaletteList-nav-link" to="/palette/new">
+            Create Palette
+          </Link>
         </nav>
         <div className="PaletteList-palettes">
           {seedColors.map((palette) => (

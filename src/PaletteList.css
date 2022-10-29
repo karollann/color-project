@@ -19,6 +19,11 @@
   width: 100%;
   justify-content: space-between;
   color: white;
+  align-items: center;
+}
+
+.PaletteList-nav-link {
+  color: white;
 }
 
 .PaletteList-palettes {
