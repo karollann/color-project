@@ -121,6 +121,12 @@ export const NewPaletteForm = ({ savePalette, palettes }) => {
     console.log("newpalette", newPalette);
   };
 
+  const removeColor = (colorName) => {
+    setColors(colors.filter((color) => color.name !== colorName));
+
+    console.log("remove color", colors);
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -221,6 +227,7 @@ export const NewPaletteForm = ({ savePalette, palettes }) => {
             key={color.name}
             color={color.color}
             name={color.name}
+            handleClick={() => removeColor(color.name)}
           />
         ))}
       </Main>
