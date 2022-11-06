@@ -4,14 +4,14 @@ import { ColorBox } from "./ColorBox";
 import { Navbar } from "./Navbar";
 import { PaletteFooter } from "./PaletteFooter";
 import "./Palette.css";
-import { seedColors } from "./seedColors";
+// import { seedColors } from "./seedColors";
 import { generatePalette } from "./colorHelpers";
 
-const findPalette = (id) => {
-  return seedColors.find((palette) => palette.id === id);
-};
+export const Palette = ({ palettes }) => {
+  const findPalette = (id) => {
+    return palettes.find((palette) => palette.id === id);
+  };
 
-export const Palette = () => {
   const [level, setLevel] = useState(500);
   const [format, setFormat] = useState("hex");
 

@@ -1,9 +1,11 @@
 import "./PaletteList.css";
-import { seedColors } from "./seedColors";
+// import { seedColors } from "./seedColors";
 import { MiniPalette } from "./MiniPalette";
 import { Link } from "react-router-dom";
 
-export const PaletteList = () => {
+export const PaletteList = ({ palettes }) => {
+  console.log("palettes", palettes);
+
   return (
     <div className="PaletteList-main">
       <div className="PaletteList-nav-container">
@@ -14,7 +16,7 @@ export const PaletteList = () => {
           </Link>
         </nav>
         <div className="PaletteList-palettes">
-          {seedColors.map((palette) => (
+          {palettes.map((palette) => (
             <Link to={`/palette/${palette.id}`} key={palette.id}>
               <MiniPalette {...palette} />
             </Link>
