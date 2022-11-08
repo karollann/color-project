@@ -66,12 +66,13 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export const NewPaletteForm = ({ savePalette, palettes }) => {
+export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
   const [open, setOpen] = useState(false);
   const [currentColor, setCurrentColor] = useState("#fff");
-  const [colors, setColors] = useState([{ color: "blue", name: "blue" }]);
+  const [colors, setColors] = useState(palettes[0].colors);
   const [newColorName, setNewColorName] = useState("");
   const [newPaletteName, setNewPaletteName] = useState("");
+
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -89,6 +90,13 @@ export const NewPaletteForm = ({ savePalette, palettes }) => {
       });
     });
   }, [palettes.paletteName, colors, currentColor]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const addRandomColor = () => {
+    const allColors = palettes.map((palette) => palette.colors).flat();
+    let rand = Math.floor(Math.random() * allColors.length);
+    const randomColor = allColors[rand];
+    setColors([...colors, randomColor]);
+  };
 
   const addNewColor = () => {
     const newColor = { color: currentColor, name: newColorName };
@@ -131,6 +139,8 @@ export const NewPaletteForm = ({ savePalette, palettes }) => {
   const onSortEnd = ({ oldIndex, newIndex }) => {
     setColors((colors) => arrayMoveImmutable(colors, oldIndex, newIndex));
   };
+
+  const paletteIsFull = colors.length >= maxColors;
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -188,10 +198,19 @@ export const NewPaletteForm = ({ savePalette, palettes }) => {
         <Divider />
         <Typography variant="h4">Design Your Palette</Typography>
         <Stack direction="row" spacing={2}>
-          <Button variant="contained" color="secondary">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => setColors([])}
+          >
             Clear Palette
           </Button>
-          <Button variant="contained" color="primary">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={addRandomColor}
+            disabled={paletteIsFull}
+          >
             Random Color
           </Button>
         </Stack>
@@ -218,10 +237,11 @@ export const NewPaletteForm = ({ savePalette, palettes }) => {
           <Button
             variant="contained"
             color="primary"
-            style={{ backgroundColor: currentColor }}
+            style={{ backgroundColor: paletteIsFull ? "gray" : currentColor }}
             type="submit"
+            disabled={paletteIsFull}
           >
-            Add Color
+            {paletteIsFull ? "Palette is full" : "Add Color"}
           </Button>
         </ValidatorForm>
       </Drawer>
