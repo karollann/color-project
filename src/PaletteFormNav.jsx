@@ -39,7 +39,8 @@ export const PaletteFormNav = ({
   savePalette,
   colors,
 }) => {
-  const [formShowing, setFormShowing] = useState(false);
+  const [openFormName, setOpenFormName] = useState("");
+
   return (
     <div>
       <CssBaseline />
@@ -65,22 +66,22 @@ export const PaletteFormNav = ({
               Go Back
             </Button>
           </Link>
+
           <Button
             className="button"
             variant="contained"
-            onClick={() => setFormShowing(!formShowing)}
+            onClick={() => setOpenFormName("form")}
           >
             Save Palette
           </Button>
-          {formShowing && (
-            <PaletteMetaForm
-              savePalette={savePalette}
-              colors={colors}
-              palettes={palettes}
-              formShowing={formShowing}
-              setFormShowing={setFormShowing}
-            />
-          )}
+
+          <PaletteMetaForm
+            savePalette={savePalette}
+            colors={colors}
+            palettes={palettes}
+            openFormName={openFormName}
+            setOpenFormName={setOpenFormName}
+          />
         </div>
       </AppBar>
     </div>
