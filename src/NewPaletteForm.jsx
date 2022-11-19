@@ -3,7 +3,6 @@ import { styled } from "@mui/material/styles";
 import { PaletteFormNav } from "./PaletteFormNav";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -13,8 +12,9 @@ import Stack from "@mui/material/Stack";
 import { DraggableColorList } from "./DraggableColorList";
 import { arrayMoveImmutable } from "array-move";
 import { ColorPickerForm } from "./ColorPickerForm";
+import "./NewPaletteForm.css";
 
-const drawerWidth = 400;
+export const drawerWidth = 400;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -36,23 +36,6 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   })
 );
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -72,8 +55,15 @@ export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
     console.log("allColors", allColors);
 
     const removedExistingColors = allColors.filter(
-      (i) => !colors.filter((y) => y.name === i.name).length
+      (colorObject) =>
+        !colors.find(
+          (paletteColor) =>
+            paletteColor.name === colorObject.name ||
+            paletteColor.color === colorObject.color
+        )
     );
+
+    console.log("removed", removedExistingColors);
 
     let rand = Math.floor(Math.random() * allColors.length);
     const randomColor = removedExistingColors[rand];
@@ -105,7 +95,6 @@ export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
       <PaletteFormNav
         open={open}
         handleDrawerOpen={handleDrawerOpen}
-        AppBar={AppBar}
         palettes={palettes}
         savePalette={savePalette}
         colors={colors}
@@ -118,6 +107,8 @@ export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
+            display: "flex",
+            alignItems: "center",
           },
         }}
         variant="persistent"
@@ -130,29 +121,37 @@ export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <Typography variant="h4">Design Your Palette</Typography>
-        <Stack direction="row" spacing={2}>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => setColors([])}
-          >
-            Clear Palette
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={addRandomColor}
-            disabled={paletteIsFull}
-          >
-            Random Color
-          </Button>
-        </Stack>
-        <ColorPickerForm
-          colors={colors}
-          setColors={setColors}
-          paletteIsFull={paletteIsFull}
-        />
+        <div className="drawer__container">
+          <Typography variant="h4" gutterBottom>
+            Design Your Palette
+          </Typography>
+          <div className="drawer--buttons">
+            <Stack direction="row" spacing={2}>
+              <Button
+                className="drawer--button"
+                variant="contained"
+                color="secondary"
+                onClick={() => setColors([])}
+              >
+                Clear Palette
+              </Button>
+              <Button
+                className="drawer--button"
+                variant="contained"
+                color="primary"
+                onClick={addRandomColor}
+                disabled={paletteIsFull}
+              >
+                Random Color
+              </Button>
+            </Stack>
+          </div>
+          <ColorPickerForm
+            colors={colors}
+            setColors={setColors}
+            paletteIsFull={paletteIsFull}
+          />
+        </div>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />

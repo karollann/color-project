@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
+import MuiAppBar from "@mui/material/AppBar";
+import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -7,11 +9,30 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Link, useNavigate } from "react-router-dom";
+import { drawerWidth } from "./NewPaletteForm";
+
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== "open",
+})(({ theme, open }) => ({
+  transition: theme.transitions.create(["margin", "width"], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  flexDirection: "row",
+  justifyContent: "space-between",
+  ...(open && {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: `${drawerWidth}px`,
+    transition: theme.transitions.create(["margin", "width"], {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
 
 export const PaletteFormNav = ({
   open,
   handleDrawerOpen,
-  AppBar,
   palettes,
   savePalette,
   colors,
@@ -56,8 +77,11 @@ export const PaletteFormNav = ({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Persistent drawer
+            Create A Palette
           </Typography>
+        </Toolbar>
+
+        <div className="navButtons">
           <ValidatorForm onSubmit={handleSubmit}>
             <TextValidator
               label="Palette Name"
@@ -73,14 +97,13 @@ export const PaletteFormNav = ({
             <Button variant="contained" color="primary" type="submit">
               Save Palette
             </Button>
-
-            <Link to="/">
-              <Button variant="contained" color="secondary">
-                Go Back
-              </Button>
-            </Link>
           </ValidatorForm>
-        </Toolbar>
+          <Link to="/">
+            <Button variant="contained" color="secondary">
+              Go Back
+            </Button>
+          </Link>
+        </div>
       </AppBar>
     </div>
   );

@@ -1,0 +1,16 @@
+.drawer__container {
+  width: 90%;
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.drawer--buttons {
+  width: 100%;
+}
+
+.drawer--button {
+  width: 50%;
+}
