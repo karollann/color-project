@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar from "@mui/material/AppBar";
 import { styled } from "@mui/material/styles";
@@ -7,9 +6,11 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { drawerWidth } from "./NewPaletteForm";
+import { PaletteMetaForm } from "./PaletteMetaForm";
+import { useState } from "react";
+import "./PaletteFormNav.css";
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -20,6 +21,7 @@ const AppBar = styled(MuiAppBar, {
   }),
   flexDirection: "row",
   justifyContent: "space-between",
+  alignItems: "center",
   ...(open && {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: `${drawerWidth}px`,
@@ -37,31 +39,7 @@ export const PaletteFormNav = ({
   savePalette,
   colors,
 }) => {
-  let navigate = useNavigate();
-  const [newPaletteName, setNewPaletteName] = useState("");
-
-  const handlePaletteChange = (event) => {
-    setNewPaletteName(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    const newPalette = {
-      paletteName: newPaletteName,
-      id: newPaletteName.toLowerCase().replace(/ /g, "-"),
-      colors: colors,
-    };
-    savePalette(newPalette);
-    navigate("/");
-    console.log("newpalette", newPalette);
-  };
-
-  useEffect(() => {
-    ValidatorForm.addValidationRule("isPaletteNameUnique", (value) => {
-      return palettes.every(({ paletteName }) => {
-        return paletteName.toLowerCase() !== value.toLowerCase();
-      });
-    });
-  }, [palettes.paletteName]); // eslint-disable-line react-hooks/exhaustive-deps
+  const [formShowing, setFormShowing] = useState(false);
   return (
     <div>
       <CssBaseline />
@@ -82,27 +60,27 @@ export const PaletteFormNav = ({
         </Toolbar>
 
         <div className="navButtons">
-          <ValidatorForm onSubmit={handleSubmit}>
-            <TextValidator
-              label="Palette Name"
-              name="newPaletteName"
-              value={newPaletteName}
-              onChange={handlePaletteChange}
-              validators={["required", "isPaletteNameUnique"]}
-              errorMessages={[
-                "Enter palette name",
-                "Palette name already used",
-              ]}
-            />
-            <Button variant="contained" color="primary" type="submit">
-              Save Palette
-            </Button>
-          </ValidatorForm>
           <Link to="/">
-            <Button variant="contained" color="secondary">
+            <Button className="button" variant="contained" color="secondary">
               Go Back
             </Button>
           </Link>
+          <Button
+            className="button"
+            variant="contained"
+            onClick={() => setFormShowing(!formShowing)}
+          >
+            Save Palette
+          </Button>
+          {formShowing && (
+            <PaletteMetaForm
+              savePalette={savePalette}
+              colors={colors}
+              palettes={palettes}
+              formShowing={formShowing}
+              setFormShowing={setFormShowing}
+            />
+          )}
         </div>
       </AppBar>
     </div>
