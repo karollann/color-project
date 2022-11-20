@@ -16,6 +16,13 @@ function App() {
     setPalettes([...palettes, newPalette]);
   };
 
+  const deletePalette = (id) => {
+    const newPalettes = palettes.filter((palette) => {
+      return palette.id !== id;
+    });
+    setPalettes(newPalettes);
+  };
+
   useEffect(() => {
     window.localStorage.setItem("palettes", JSON.stringify(palettes));
   }, [palettes]);
@@ -28,7 +35,12 @@ function App() {
           <NewPaletteForm savePalette={savePalette} palettes={palettes} />
         }
       />
-      <Route path="/" element={<PaletteList palettes={palettes} />} />
+      <Route
+        path="/"
+        element={
+          <PaletteList palettes={palettes} deletePalette={deletePalette} />
+        }
+      />
       <Route path="/palette/:id" element={<Palette palettes={palettes} />} />
       <Route
         path="/palette/:paletteId/:colorId"

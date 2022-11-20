@@ -1,10 +1,30 @@
 import React from "react";
 import "./Styles/MiniPalette.css";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export const MiniPalette = ({ paletteName, emoji, colors }) => {
+export const MiniPalette = ({
+  paletteName,
+  emoji,
+  colors,
+  deletePalette,
+  id,
+}) => {
+  const removePalette = (e) => {
+    e.preventDefault();
+    deletePalette(id);
+  };
+  console.log("deletePalette", deletePalette);
+  console.log("colors", colors);
+  console.log("paletteName", paletteName);
+
   return (
     <div>
       <div className="MiniPalette-main">
+        <DeleteIcon
+          className="MiniPalette__deleteIcon"
+          style={{ transition: "all 0.3s ease-in-out" }}
+          onClick={removePalette}
+        />
         <div className="MiniPalette-colors">
           {colors.map((color) => (
             <div

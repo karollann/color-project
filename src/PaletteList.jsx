@@ -2,7 +2,9 @@ import "./Styles/PaletteList.css";
 import { MiniPalette } from "./MiniPalette";
 import { Link } from "react-router-dom";
 
-export const PaletteList = ({ palettes }) => {
+export const PaletteList = ({ palettes, deletePalette }) => {
+  console.log("palettes", palettes);
+
   return (
     <div className="PaletteList-main">
       <div className="PaletteList-nav-container">
@@ -15,7 +17,7 @@ export const PaletteList = ({ palettes }) => {
         <div className="PaletteList-palettes">
           {palettes.map((palette) => (
             <Link to={`/palette/${palette.id}`} key={palette.id}>
-              <MiniPalette {...palette} />
+              <MiniPalette {...palette} deletePalette={deletePalette} />
             </Link>
           ))}
         </div>
