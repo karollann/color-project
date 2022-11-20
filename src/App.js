@@ -5,7 +5,7 @@ import { PaletteList } from "./PaletteList";
 import { Palette } from "./Palette";
 import { SingleColorPalette } from "./SingleColorPalette";
 import { NewPaletteForm } from "./NewPaletteForm";
-import "./App.css";
+import "./Styles/App.css";
 
 function App() {
   const savePalette = (newPalette) => {

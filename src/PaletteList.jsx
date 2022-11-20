@@ -1,11 +1,8 @@
-import "./PaletteList.css";
-// import { seedColors } from "./seedColors";
+import "./Styles/PaletteList.css";
 import { MiniPalette } from "./MiniPalette";
 import { Link } from "react-router-dom";
 
 export const PaletteList = ({ palettes }) => {
-  console.log("palettes", palettes);
-
   return (
     <div className="PaletteList-main">
       <div className="PaletteList-nav-container">

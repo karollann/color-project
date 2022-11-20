@@ -1,5 +1,5 @@
 import React from "react";
-import "./MiniPalette.css";
+import "./Styles/MiniPalette.css";
 
 export const MiniPalette = ({ paletteName, emoji, colors }) => {
   return (

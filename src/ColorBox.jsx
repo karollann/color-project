@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import "./ColorBox.css";
+import "./Styles/ColorBox.css";
 import chroma from "chroma-js";
 
 export const ColorBox = ({ background, name, paletteId, id, showLink }) => {

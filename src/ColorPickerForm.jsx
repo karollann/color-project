@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import { ChromePicker } from "react-color";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import "./ColorPickerForm.css";
+import "./Styles/ColorPickerForm.css";
 
 export const ColorPickerForm = ({ colors, setColors, paletteIsFull }) => {
   const [currentColor, setCurrentColor] = useState("#fff");
@@ -35,7 +35,6 @@ export const ColorPickerForm = ({ colors, setColors, paletteIsFull }) => {
       <ChromePicker
         className="picker"
         onChangeComplete={(newColor) => {
-          console.log("newColor", newColor);
           setCurrentColor(newColor.hex);
         }}
         color={currentColor}
@@ -56,7 +55,6 @@ export const ColorPickerForm = ({ colors, setColors, paletteIsFull }) => {
             "Color must be unique",
           ]}
         />
-
         <Button
           className="picker--addColorButton"
           variant="contained"
