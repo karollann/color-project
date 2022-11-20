@@ -5,6 +5,8 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
+
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { Link } from "react-router-dom";
 import { PaletteMetaForm } from "./PaletteMetaForm";
 import { useState } from "react";
@@ -32,7 +34,7 @@ export const PaletteFormNav = ({
             edge="start"
             sx={{ mr: 2, ...(open && { display: "none" }) }}
           >
-            <MenuIcon />
+            <ChevronRightIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             Create A Palette
