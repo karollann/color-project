@@ -4,7 +4,14 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import "./Styles/ColorBox.css";
 import chroma from "chroma-js";
 
-export const ColorBox = ({ background, name, paletteId, id, showLink }) => {
+export const ColorBox = ({
+  background,
+  name,
+  paletteId,
+  id,
+  showLink,
+  singleColorClassName,
+}) => {
   const [copied, isCopied] = useState(false);
 
   const changeCopied = () => {
@@ -19,17 +26,20 @@ export const ColorBox = ({ background, name, paletteId, id, showLink }) => {
 
   return (
     <CopyToClipboard text={background} onCopy={changeCopied}>
-      <div style={{ background }} className="ColorBox">
+      <div
+        style={{ background }}
+        className={`colorBox ${singleColorClassName}`}
+      >
         <div
           style={{ background }}
-          className={`${copied && "show"} copy-overlay`}
+          className={`${copied && "show"} colorBox__copyOverlay`}
         />
-        <div className={`${copied && "show"} copy-msg`}>
+        <div className={`${copied && "show"} colorBox__copyMsg`}>
           <h1>copied!</h1>
           <p className={isLightColor ? "dark-text" : undefined}>{background}</p>
         </div>
         <div className="copy-container">
-          <div className="box-content">
+          <div className="colorBox__boxContent">
             <span className={isDarkColor ? "light-text" : undefined}>
               {name}
             </span>

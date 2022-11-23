@@ -33,21 +33,24 @@ export const Navbar = ({
         <Link to="/">reactcolorpicker</Link>
       </div>
       {showSlider && (
-        <div className="slider-container">
-          <div className="slider">
-            <span>Level: {level}</span>
-            <Slider
-              defaultValue={level}
-              min={100}
-              max={900}
-              step={100}
-              onAfterChange={changeLevel}
-            />
-          </div>
+        <div className="slider">
+          <span className="slider__text">Level: {level}</span>
+          <Slider
+            defaultValue={level}
+            min={100}
+            max={900}
+            step={100}
+            onAfterChange={changeLevel}
+          />
         </div>
       )}
       <div className="select-container">
-        <Select value={format} onChange={handleFormatChange}>
+        <Select
+          value={format}
+          onChange={handleFormatChange}
+          classes={{ select: "select-container__text" }}
+          // sx={{ "@media (min-width: 768px)": { fontSize: "10px" } }}
+        >
           <MenuItem value="hex">HEX - #ffffff</MenuItem>
           <MenuItem value="rgb">RGB - RGB(255,255,255)</MenuItem>
           <MenuItem value="rgba">RGBA - RGBA(255,255,255, 1.0)</MenuItem>

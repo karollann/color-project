@@ -1,11 +1,10 @@
 .DraggableColorBox {
-  width: 20%;
-  height: 25%;
+  width: 100%;
+  height: 5%;
   margin: 0 auto;
   display: inline-block;
   position: relative;
   cursor: pointer;
-  margin-bottom: -3.5px;
 }
 .DraggableColorBox:hover .DraggableColorBox__deleteIcon {
   color: white;
@@ -13,16 +12,29 @@
   transform: scale(1.5);
 }
 
-.DraggableColorBox--content {
-  position: absolute;
+.DraggableColorBox__content {
   width: 100%;
-  left: 0px;
-  bottom: 0px;
-  padding: 10px;
+  height: 100%;
+  padding: 0 10px;
   color: rgba(0, 0, 0, 0.5);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 12px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (min-width: 576px) {
+  .DraggableColorBox {
+    width: 50%;
+    height: 10%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .DraggableColorBox {
+    width: 20%;
+    height: 25%;
+  }
 }

@@ -40,3 +40,11 @@
   z-index: 10;
   opacity: 0;
 }
+
+.MiniPalette-title {
+  display: flex;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  justify-content: space-between;
+  margin: 0;
+}

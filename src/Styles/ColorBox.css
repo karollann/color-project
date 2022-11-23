@@ -1,19 +1,21 @@
-.ColorBox {
-  width: 20%;
-  height: 25%;
-  margin: 0 auto;
-  display: inline-block;
+.colorBox {
+  width: 100%;
+  height: 5%;
   position: relative;
-  cursor: pointer;
-  margin-bottom: -3.5px;
 }
 
-.SingleColorPalette .ColorBox {
+.SingleColorPalette {
   height: 50%;
 }
 
-.ColorBox.GoBack {
+.colorBox--SingleColor {
+  height: 10%;
+}
+
+.colorBox.GoBack {
   background-color: black;
+  width: 100%;
+  height: 10%;
 }
 
 .copy-button,
@@ -40,12 +42,12 @@
   opacity: 0;
 }
 
-.ColorBox:hover .copy-button {
+.colorBox:hover .copy-button {
   opacity: 1;
   transition: 0.5s;
 }
 
-.box-content {
+.colorBox__boxContent {
   position: absolute;
   width: 100%;
   left: 0px;
@@ -61,7 +63,7 @@
   color: white;
 }
 
-.ColorBox .dark-text {
+.colorBox .dark-text {
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -72,14 +74,14 @@
   right: 0px;
   bottom: 0px;
   color: white;
-  width: 60px;
-  height: 30px;
+  width: 3.75rem;
+  height: 1.875rem;
   text-align: center;
-  line-height: 30px;
+  line-height: 1.875rem;
   text-transform: uppercase;
 }
 
-.copy-overlay {
+.colorBox__copyOverlay {
   opacity: 0;
   z-index: 0;
   height: 100%;
@@ -88,14 +90,14 @@
   transform: scale(0.1);
 }
 
-.copy-overlay.show {
+.colorBox__copyOverlay.show {
   opacity: 1;
   transform: scale(50);
   z-index: 10;
   position: absolute;
 }
 
-.copy-msg {
+.colorBox__copyMsg {
   position: fixed;
   left: 0;
   right: 0;
@@ -111,7 +113,7 @@
   color: white;
 }
 
-.copy-msg.show {
+.colorBox__copyMsg.show {
   opacity: 1;
   transform: scale(1);
   z-index: 25;
@@ -119,7 +121,7 @@
   transition-delay: 0.3s;
 }
 
-.copy-msg h1 {
+.colorBox__copyMsg h1 {
   font-weight: 400;
   text-shadow: 1px 2px black;
   background: rgba(255, 255, 255, 0.2);
@@ -128,8 +130,79 @@
   margin-bottom: 0;
   padding: 1rem;
   text-transform: uppercase;
+  font-size: 4rem;
 }
-.copy-msg p {
+.colorBox__copyMsg p {
   font-size: 2rem;
   font-weight: 100;
+}
+
+@media only screen and (min-width: 576px) {
+  .colorBox {
+    width: 50%;
+    height: 10%;
+    margin: 0 auto;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: -3.5px;
+  }
+
+  .colorBox.GoBack {
+    width: 50%;
+    height: 20%;
+  }
+
+  .colorBox--SingleColor {
+    width: 50%;
+    height: 20%;
+  }
+  .colorBox__copyMsg h1 {
+    font-size: 6rem;
+  }
+  .colorBox__copyMsg p {
+    font-size: 3rem;
+    font-weight: 100;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .colorBox {
+    width: 25%;
+    height: 20%;
+    margin: 0 auto;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: -3.5px;
+  }
+
+  .colorBox.GoBack {
+    width: 50%;
+    height: 20%;
+  }
+
+  .colorBox--SingleColor {
+    width: 50%;
+    height: 20%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .colorBox {
+    width: 20%;
+    height: 25%;
+    margin: 0 auto;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: -3.5px;
+  }
+
+  .colorBox.GoBack {
+    width: 25%;
+    height: 33.333333%;
+  }
+
+  .colorBox--SingleColor {
+    width: 25%;
+    height: 33.333333%;
+  }
 }

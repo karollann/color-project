@@ -7,7 +7,7 @@
 }
 
 .PaletteList-nav-container {
-  width: 50%;
+  width: 65%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -26,10 +26,36 @@
   color: white;
 }
 
-.PaletteList-palettes {
+/* .PaletteList-palettes {
   box-sizing: border-box;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 30%);
-  grid-gap: 5%;
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 250px)); */
+/* grid-gap: 5%; */
+/* } */
+
+.PaletteList-palettes {
+  box-sizing: border-box;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  grid-gap: 1%;
+}
+
+@media only screen and (min-width: 576px) {
+  .PaletteList-palettes {
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: 5%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .PaletteList-palettes {
+    grid-template-columns: repeat(3, 33%);
+    grid-gap: 5%;
+  }
+  .PaletteList-nav-container {
+    width: 50%;
+  }
 }

@@ -31,16 +31,17 @@ export const SingleColorPalette = ({ palettes }) => {
   return (
     <div className="SingleColorPalette Palette">
       <Navbar setFormat={setFormat} format={format} />
-      <div className="Palette-colors">
+      <div className="Palette-colors ">
         {gatherShades(palette, colorId).map((color) => (
           <ColorBox
+            singleColorClassName="colorBox--SingleColor"
             key={color.name}
             name={color.name}
             background={color[format]}
             showLink={false}
           />
         ))}
-        <div className="GoBack ColorBox">
+        <div className="GoBack colorBox">
           <Link to={`/palette/${paletteId}`} className="back-button">
             Go Back
           </Link>

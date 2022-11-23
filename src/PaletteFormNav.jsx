@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { PaletteMetaForm } from "./PaletteMetaForm";
 import { useState } from "react";
 import "./Styles/PaletteFormNav.css";
-import { AppBar } from "./Styles/PaletteFormeNavStyles";
+import { AppBar } from "./Styles/PaletteFormNavStyles";
 
 export const PaletteFormNav = ({
   open,
@@ -33,7 +33,12 @@ export const PaletteFormNav = ({
           >
             <ChevronRightIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            className="paletteForm__title"
+          >
             Create A Palette
           </Typography>
         </Toolbar>
