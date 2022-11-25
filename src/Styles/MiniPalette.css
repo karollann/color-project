@@ -31,14 +31,15 @@
 .MiniPalette__deleteIcon {
   color: white;
   background-color: #eb3d30;
-  width: 20px;
-  height: 20px;
+  width: 40px !important;
+  height: 40px !important;
   position: absolute;
   right: 0;
   top: 0;
-  padding: 10px;
+  padding: 7px;
   z-index: 10;
   opacity: 0;
+  font-size: 20px;
 }
 
 .MiniPalette-title {

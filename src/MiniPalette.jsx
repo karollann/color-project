@@ -22,7 +22,7 @@ export const MiniPalette = ({
       <div className="MiniPalette-main">
         <DeleteIcon
           className="MiniPalette__deleteIcon"
-          style={{ transition: "all 0.3s ease-in-out" }}
+          style={{ transition: "opacity 0.3s ease-in-out" }}
           onClick={removePalette}
         />
         <div className="MiniPalette-colors">

@@ -1,11 +1,13 @@
 .PaletteList-main {
   height: 100vh;
-  background-color: blue;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  background-color: #1c0433;
+  background-image: url("bg.svg");
+  /* background by SVGBackgrounds.com */
+  overflow: scroll;
 }
-
 .PaletteList-nav-container {
   width: 65%;
   display: flex;
@@ -13,7 +15,6 @@
   flex-direction: column;
   flex-wrap: wrap;
 }
-
 .PaletteList-nav {
   display: flex;
   width: 100%;
@@ -21,35 +22,23 @@
   color: white;
   align-items: center;
 }
-
 .PaletteList-nav-link {
   color: white;
+  font-size: 1.2rem;
 }
-
-/* .PaletteList-palettes {
-  box-sizing: border-box;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 30%);
-  /* grid-template-columns: repeat(auto-fit, minmax(200px, 250px)); */
-/* grid-gap: 5%; */
-/* } */
-
 .PaletteList-palettes {
   box-sizing: border-box;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(1, 100%);
-  grid-gap: 1%;
+  grid-gap: 1.5%;
 }
-
 @media only screen and (min-width: 576px) {
   .PaletteList-palettes {
     grid-template-columns: repeat(2, 50%);
     grid-gap: 5%;
   }
 }
-
 @media only screen and (min-width: 992px) {
   .PaletteList-palettes {
     grid-template-columns: repeat(3, 33%);
