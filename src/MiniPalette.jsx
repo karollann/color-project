@@ -2,18 +2,11 @@ import React from "react";
 import "./Styles/MiniPalette.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-export const MiniPalette = ({
-  paletteName,
-  emoji,
-  colors,
-  deletePalette,
-  id,
-}) => {
+export const MiniPalette = ({ paletteName, emoji, colors, openDialog, id }) => {
   const removePalette = (e) => {
     e.preventDefault();
-    deletePalette(id);
+    openDialog(id);
   };
-  console.log("deletePalette", deletePalette);
   console.log("colors", colors);
   console.log("paletteName", paletteName);
 

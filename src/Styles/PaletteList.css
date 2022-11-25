@@ -41,6 +41,16 @@
   transition: opacity 500ms ease-in;
 }
 
+.paletteList__deleteColor {
+  background-color: #bee3f8 !important;
+  color: #3182ce !important
+  ;
+}
+.paletteList__cancelColor {
+  background-color: #fed7d7 !important;
+  color: #e53e3e !important;
+}
+
 @media only screen and (min-width: 576px) {
   .PaletteList-palettes {
     grid-template-columns: repeat(2, 50%);
