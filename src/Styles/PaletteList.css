@@ -33,6 +33,14 @@
   grid-template-columns: repeat(1, 100%);
   grid-gap: 1.5%;
 }
+.PaletteList__Palettes--fade-exit {
+  opacity: 1;
+}
+.PaletteList__Palettes--fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
 @media only screen and (min-width: 576px) {
   .PaletteList-palettes {
     grid-template-columns: repeat(2, 50%);
