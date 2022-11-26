@@ -4,6 +4,8 @@ import { generatePalette } from "./colorHelpers";
 import { ColorBox } from "./ColorBox";
 import { Navbar } from "./Navbar";
 import { PaletteFooter } from "./PaletteFooter";
+import "./Styles/App.css";
+import { Page } from "./Page";
 
 export const SingleColorPalette = ({ palettes }) => {
   const { paletteId, colorId } = useParams();
@@ -29,25 +31,30 @@ export const SingleColorPalette = ({ palettes }) => {
   };
 
   return (
-    <div className="SingleColorPalette Palette">
-      <Navbar setFormat={setFormat} format={format} />
-      <div className="Palette-colors ">
-        {gatherShades(palette, colorId).map((color) => (
-          <ColorBox
-            singleColorClassName="colorBox--SingleColor"
-            key={color.name}
-            name={color.name}
-            background={color[format]}
-            showLink={false}
-          />
-        ))}
-        <div className="GoBack colorBox">
-          <Link to={`/palette/${paletteId}`} className="back-button">
-            Go Back
-          </Link>
+    <Page>
+      <div className="SingleColorPalette Palette page">
+        <Navbar setFormat={setFormat} format={format} />
+        <div className="Palette-colors ">
+          {gatherShades(palette, colorId).map((color) => (
+            <ColorBox
+              singleColorClassName="colorBox--SingleColor"
+              key={color.name}
+              name={color.name}
+              background={color[format]}
+              showLink={false}
+            />
+          ))}
+          <div className="GoBack colorBox">
+            <Link to={`/palette/${paletteId}`} className="back-button">
+              Go Back
+            </Link>
+          </div>
         </div>
+        <PaletteFooter
+          paletteName={palette.paletteName}
+          emoji={palette.emoji}
+        />
       </div>
-      <PaletteFooter paletteName={palette.paletteName} emoji={palette.emoji} />
-    </div>
+    </Page>
   );
 };

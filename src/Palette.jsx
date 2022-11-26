@@ -6,6 +6,8 @@ import { PaletteFooter } from "./PaletteFooter";
 import "./Styles/Palette.css";
 // import { seedColors } from "./seedColors";
 import { generatePalette } from "./colorHelpers";
+import "./Styles/App.css";
+import { Page } from "./Page";
 
 export const Palette = ({ palettes }) => {
   const findPalette = (id) => {
@@ -24,27 +26,32 @@ export const Palette = ({ palettes }) => {
   const changeLevel = (level) => setLevel(level);
 
   return (
-    <div className="Palette">
-      <Navbar
-        level={level}
-        changeLevel={changeLevel}
-        setFormat={setFormat}
-        format={format}
-        showSlider={true}
-      />
-      <div className="Palette-colors">
-        {palette.colors[level].map((color) => (
-          <ColorBox
-            key={color.name}
-            background={color[format]}
-            name={color.name}
-            id={color.id}
-            paletteId={palette.id}
-            showLink={true}
-          />
-        ))}
+    <Page>
+      <div className="Palette page">
+        <Navbar
+          level={level}
+          changeLevel={changeLevel}
+          setFormat={setFormat}
+          format={format}
+          showSlider={true}
+        />
+        <div className="Palette-colors">
+          {palette.colors[level].map((color) => (
+            <ColorBox
+              key={color.name}
+              background={color[format]}
+              name={color.name}
+              id={color.id}
+              paletteId={palette.id}
+              showLink={true}
+            />
+          ))}
+        </div>
+        <PaletteFooter
+          paletteName={palette.paletteName}
+          emoji={palette.emoji}
+        />
       </div>
-      <PaletteFooter paletteName={palette.paletteName} emoji={palette.emoji} />
-    </div>
+    </Page>
   );
 };

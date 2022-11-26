@@ -8,3 +8,105 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.page {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transition: opacity 5s ease-in-out;
+}
+
+.dupa {
+  transition: opacity 5s ease-in-out;
+}
+
+.dupa-enter,
+.dupa-appear {
+  opacity: 0;
+}
+
+.dupa-enter-active,
+.dupa-appear-active {
+  opacity: 1;
+}
+
+.dupa-exit-active {
+  transition: opacity 5s ease-in-out;
+  opacity: 0;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 3s;
+}
+.fade-out {
+  animation-name: fadeOut;
+  animation-duration: 3s;
+}
+
+/* .PaletteList__Palettes--fade-exit {
+  opacity: 1;
+} */
+
+/* .PaletteList__Palettes--fade-exit-active {
+  opacity: 0;
+  transition: opacity 5000ms ease-in;
+} */
+
+/* .container {
+  position: relative;
+}
+
+.page {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+} */
+
+/* .page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+} */
