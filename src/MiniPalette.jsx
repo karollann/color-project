@@ -12,22 +12,22 @@ export const MiniPalette = React.memo(
 
     return (
       <div>
-        <div className="MiniPalette-main">
+        <div className="MiniPalette__Main">
           <DeleteIcon
-            className="MiniPalette__deleteIcon"
+            className="MiniPalette__DeleteIcon"
             style={{ transition: "opacity 0.3s ease-in-out" }}
             onClick={removePalette}
           />
-          <div className="MiniPalette-colors">
+          <div className="MiniPalette__Colors">
             {colors.map((color) => (
               <div
-                className="MiniPalette-miniColor"
+                className="MiniPalette__MiniColor"
                 key={color.name}
                 style={{ backgroundColor: color.color }}
               />
             ))}
           </div>
-          <h2 className="MiniPalette-title">
+          <h2 className="MiniPalette__Title">
             {paletteName}
             <span className="MiniPalette-emoji">{emoji}</span>
           </h2>

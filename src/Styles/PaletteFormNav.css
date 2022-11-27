@@ -1,27 +1,27 @@
-.navButtons {
+.PaletteFormNav__NavButtons {
   margin-right: 0;
 }
 
-button.button {
+button.PaletteFormNav__Button {
   margin: 0;
   font-size: 10px;
   padding: 6px 9px;
 }
 
-.paletteForm__title {
+.PaletteFormNav__Title {
   font-size: 14px !important;
 }
 
 @media only screen and (min-width: 576px) {
-  .navButtons {
+  .PaletteFormNav__NavButtons {
     margin-right: 0.5rem;
   }
-  button.button {
+  button.PaletteFormNav__Button {
     margin: 0 0.5rem;
     font-size: 14px;
     padding: 9px 16px;
   }
-  .paletteForm__title {
+  .PaletteFormNav__Title {
     font-size: 1.25rem !important;
   }
 }

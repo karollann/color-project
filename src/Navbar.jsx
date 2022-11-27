@@ -30,12 +30,12 @@ export const Navbar = ({
 
   return (
     <header className="Navbar">
-      <div className="logo">
+      <div className="Navbar__Logo">
         <Link to="/">reactcolorpicker</Link>
       </div>
       {showSlider && (
-        <div className="slider">
-          <span className="slider__text">Level: {level}</span>
+        <div className="Navbar__Slider">
+          <span className="Navbar__SliderText">Level: {level}</span>
           <Slider
             defaultValue={level}
             min={100}
@@ -45,11 +45,11 @@ export const Navbar = ({
           />
         </div>
       )}
-      <div className="select-container">
+      <div className="Navbar__SelectContainer">
         <Select
           value={format}
           onChange={handleFormatChange}
-          classes={{ select: "select-container__text" }}
+          classes={{ select: "Navbar__SelectContainerText" }}
           // sx={{ "@media (min-width: 768px)": { fontSize: "10px" } }}
         >
           <MenuItem value="hex">HEX - #ffffff</MenuItem>

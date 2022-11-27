@@ -2,9 +2,9 @@ import React from "react";
 
 export const PaletteFooter = ({ paletteName, emoji }) => {
   return (
-    <footer className="Palette-footer">
+    <footer className="Palette__Footer">
       {paletteName}
-      <span className="emoji">{emoji}</span>
+      <span className="Palette__FooterEmoji">{emoji}</span>
     </footer>
   );
 };

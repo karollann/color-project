@@ -35,7 +35,7 @@ export const Palette = ({ palettes }) => {
           format={format}
           showSlider={true}
         />
-        <div className="Palette-colors">
+        <div className="Palette__Colors">
           {palette.colors[level].map((color) => (
             <ColorBox
               key={color.name}

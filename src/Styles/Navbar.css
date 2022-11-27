@@ -5,7 +5,7 @@
   height: 6vh;
 }
 
-.logo {
+.Navbar__Logo {
   margin-right: 5px;
   padding: 0 13px;
   font-size: 16px;
@@ -16,22 +16,18 @@
   align-items: center;
 }
 
-.logo a {
+.Navbar__Logo a {
   text-decoration: none;
   color: black;
 }
 
-/* .slider-container {
-
-} */
-
-.slider {
+.Navbar__Slider {
   width: 100px;
   margin: 0 10px;
   display: inline-block;
 }
 
-.slider__text {
+.Navbar__SliderText {
   font-size: 14px;
 }
 
@@ -58,16 +54,16 @@
   margin-top: -3px;
 }
 
-.select-container {
+.Navbar__SelectContainer {
   margin-left: auto;
 }
 
-.select-container__text {
+.Navbar__SelectContainerText {
   font-size: 10px !important;
 }
 
 @media only screen and (min-width: 576px) {
-  .logo {
+  .Navbar__Logo {
     margin-right: 10px;
     padding: 0 13px;
     font-size: 22px;
@@ -77,30 +73,30 @@
     display: flex;
     align-items: center;
   }
-  .slider {
+  .Navbar__Slider {
     width: 170px;
     margin: 0 10px;
     display: inline-block;
   }
-  .slider__text {
+  .Navbar__SliderText {
     font-size: 17px;
   }
-  .select-container__text {
+  .Navbar__SelectContainerText {
     font-size: 16px !important;
   }
-  .select-container {
+  .Navbar__SelectContainer {
     margin-left: auto;
     margin-right: 1rem;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .slider {
+  .Navbar__Slider {
     width: 400px;
     margin: 0 10px;
     display: flex;
   }
-  .slider__text {
+  .Navbar__SliderText {
     font-size: 17px;
     display: flex;
     min-width: 100px;
@@ -108,7 +104,7 @@
 }
 
 @media only screen and (min-width: 992px) {
-  .logo {
+  .Navbar__Logo {
     padding: 0 13px;
     font-size: 22px;
     background-color: #eceff1;
@@ -118,7 +114,7 @@
     align-items: center;
   }
 
-  .slider {
+  .Navbar__Slider {
     width: 340px;
     margin: 0 10px;
   }

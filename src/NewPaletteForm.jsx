@@ -90,14 +90,14 @@ export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
             </IconButton>
           </DrawerHeader>
           <Divider />
-          <div className="drawer__container">
+          <div className="NewPaletteForm__DrawerContainer">
             <Typography variant="h4" gutterBottom>
               Design Your Palette
             </Typography>
-            <div className="drawer--buttons">
+            <div className="NewPaletteForm__DrawerButtons">
               <Stack direction="row" spacing={2}>
                 <Button
-                  className="drawer--button"
+                  className="NewPaletteForm__DrawerButton"
                   variant="contained"
                   color="secondary"
                   onClick={() => setColors([])}
@@ -105,7 +105,7 @@ export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
                   Clear Palette
                 </Button>
                 <Button
-                  className="drawer--button"
+                  className="NewPaletteForm__DrawerButton"
                   variant="contained"
                   color="primary"
                   onClick={addRandomColor}

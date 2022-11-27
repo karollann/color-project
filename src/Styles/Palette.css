@@ -4,11 +4,11 @@
   flex-direction: column;
 }
 
-.Palette-colors {
+.Palette__Colors {
   height: 90%;
 }
 
-.Palette-footer {
+.Palette__Footer {
   height: 5vh;
   background-color: white;
   display: flex;
@@ -17,7 +17,7 @@
   font-weight: bold;
 }
 
-.emoji {
+.Palette__FooterEmoji {
   font-size: 1.5rem;
   margin: 0 1rem;
 }

@@ -22,14 +22,14 @@ export const PaletteList = ({ palettes, deletePalette }) => {
   return (
     <Page>
       <div className="PaletteList-main page">
-        <div className="PaletteList-nav-container">
+        <div className="PaletteList__NavContainer">
           <nav className="PaletteList-nav">
             <h1>React colors</h1>
             <Link className="PaletteList-nav-link" to="/palette/new">
               Create Palette
             </Link>
           </nav>
-          <TransitionGroup className="PaletteList-palettes">
+          <TransitionGroup className="PaletteList__Palettes">
             {palettes.map((palette) => (
               <CSSTransition key={palette.id} classNames="fade" timeout={500}>
                 <Link to={`/palette/${palette.id}`} key={palette.id}>
@@ -56,7 +56,7 @@ export const PaletteList = ({ palettes, deletePalette }) => {
               }}
             >
               <ListItemAvatar>
-                <Avatar className="paletteList__deleteColor">
+                <Avatar className="PaletteList__DeleteColor">
                   <Check />
                 </Avatar>
               </ListItemAvatar>
@@ -64,7 +64,7 @@ export const PaletteList = ({ palettes, deletePalette }) => {
             </ListItem>
             <ListItem button onClick={() => setDeletingId(null)}>
               <ListItemAvatar>
-                <Avatar className="paletteList__cancelColor">
+                <Avatar className="PaletteList__CancelColor">
                   <Close />
                 </Avatar>
               </ListItemAvatar>

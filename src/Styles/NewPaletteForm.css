@@ -1,4 +1,4 @@
-.drawer__container {
+.NewPaletteForm__DrawerContainer {
   width: 90%;
 
   height: 100%;
@@ -7,10 +7,10 @@
   justify-content: center;
   align-items: center;
 }
-.drawer--buttons {
+.NewPaletteForm__DrawerButtons {
   width: 100%;
 }
 
-.drawer--button {
+.NewPaletteForm__DrawerButton {
   width: 50%;
 }

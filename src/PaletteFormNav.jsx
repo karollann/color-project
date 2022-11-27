@@ -7,8 +7,8 @@ import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { PaletteMetaForm } from "./PaletteMetaForm";
-import { AppBar } from "./Styles/PaletteFormNavStyles";
 import "./Styles/PaletteFormNav.css";
+import { AppBar } from "./Styles/PaletteFormNavStyles";
 
 export const PaletteFormNav = ({
   open,
@@ -37,21 +37,25 @@ export const PaletteFormNav = ({
             variant="h6"
             noWrap
             component="div"
-            className="paletteForm__title"
+            className="PaletteFormNav__Title"
           >
             Create A Palette
           </Typography>
         </Toolbar>
 
-        <div className="navButtons">
+        <div className="PaletteFormNav__NavButtons">
           <Link to="/">
-            <Button className="button" variant="contained" color="secondary">
+            <Button
+              className="PaletteFormNav__Button"
+              variant="contained"
+              color="secondary"
+            >
               Go Back
             </Button>
           </Link>
 
           <Button
-            className="button"
+            className="PaletteFormNav__Button"
             variant="contained"
             onClick={() => setOpenFormName("form")}
           >

@@ -1,4 +1,4 @@
-.MiniPalette-main {
+.MiniPalette__Main {
   background-color: white;
   border: 1px solid black;
   border-radius: 5px;
@@ -7,11 +7,11 @@
   overflow: hidden;
   cursor: pointer;
 }
-.MiniPalette-main:hover svg {
+.MiniPalette__Main:hover svg {
   opacity: 1;
 }
 
-.MiniPalette-colors {
+.MiniPalette__Colors {
   background-color: #dae1e4;
   height: 150px;
   width: 100%;
@@ -19,7 +19,7 @@
   overflow: hidden;
 }
 
-.MiniPalette-miniColor {
+.MiniPalette__MiniColor {
   height: 25%;
   width: 20%;
   display: inline-block;
@@ -28,7 +28,7 @@
   margin-bottom: -3.5px;
 }
 
-.MiniPalette__deleteIcon {
+.MiniPalette__DeleteIcon {
   color: white;
   background-color: #eb3d30;
   width: 40px !important;
@@ -42,7 +42,7 @@
   font-size: 20px;
 }
 
-.MiniPalette-title {
+.MiniPalette__Title {
   display: flex;
   font-size: 1rem;
   padding-top: 0.5rem;

@@ -31,9 +31,9 @@ export const ColorPickerForm = ({ colors, setColors, paletteIsFull }) => {
   };
 
   return (
-    <div className="pickerWraper">
+    <div className="ColorPickerForm">
       <ChromePicker
-        className="picker"
+        className="ColorPickerForm__Picker"
         onChangeComplete={(newColor) => {
           setCurrentColor(newColor.hex);
         }}
@@ -41,7 +41,7 @@ export const ColorPickerForm = ({ colors, setColors, paletteIsFull }) => {
       />
       <ValidatorForm onSubmit={addNewColor} instantValidate={false}>
         <TextValidator
-          className="picker--colorNameInput"
+          className="Picker__ColorNameInput"
           placeholder="Color Name"
           name="newColorName"
           variant="filled"
@@ -56,7 +56,7 @@ export const ColorPickerForm = ({ colors, setColors, paletteIsFull }) => {
           ]}
         />
         <Button
-          className="picker--addColorButton"
+          className="Picker__AddColorButton"
           variant="contained"
           color="primary"
           style={{ backgroundColor: paletteIsFull ? "gray" : currentColor }}

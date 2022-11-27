@@ -9,10 +9,18 @@ export const DraggableColorBox = SortableElement(
     const isLight = isColorLight(color);
     return (
       <div style={{ backgroundColor: color }} className="DraggableColorBox">
-        <div className="DraggableColorBox__content">
-          <span className={isLight ? "dark-text" : "light-text"}>{name}</span>
+        <div className="DraggableColorBox__Content">
+          <span
+            className={
+              isLight
+                ? "DraggableColorBox--DarkText"
+                : "DraggableColorBox--LightText"
+            }
+          >
+            {name}
+          </span>
           <DeleteIcon
-            className="DraggableColorBox__deleteIcon"
+            className="DraggableColorBox__DeleteIcon"
             onClick={handleClick}
           />
         </div>
