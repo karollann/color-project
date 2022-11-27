@@ -1,5 +1,4 @@
-import "./Styles/PaletteList.css";
-import { MiniPalette } from "./MiniPalette";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { DialogTitle } from "@mui/material";
@@ -11,13 +10,13 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 import { Check } from "@mui/icons-material";
 import { Close } from "@mui/icons-material";
-import { useState } from "react";
-import "./Styles/App.css";
+
 import { Page } from "./Page";
+import { MiniPalette } from "./MiniPalette";
+import "./Styles/App.css";
+import "./Styles/PaletteList.css";
 
 export const PaletteList = ({ palettes, deletePalette }) => {
-  console.log("palettes", palettes);
-
   const [deletingId, setDeletingId] = useState(null);
 
   return (

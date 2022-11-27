@@ -1,5 +1,5 @@
-import { motion, useIsPresent } from "framer-motion";
 import React from "react";
+import { motion, useIsPresent } from "framer-motion";
 
 export const Page = ({ children }) => {
   const isPresent = useIsPresent();

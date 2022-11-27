@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { PaletteFormNav } from "./PaletteFormNav";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Typography from "@mui/material/Typography";
@@ -8,19 +7,20 @@ import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import { DraggableColorList } from "./DraggableColorList";
 import { arrayMoveImmutable } from "array-move";
+
 import { ColorPickerForm } from "./ColorPickerForm";
-import "./Styles/NewPaletteForm.css";
+import { DraggableColorList } from "./DraggableColorList";
+import { PaletteFormNav } from "./PaletteFormNav";
+import { Page } from "./Page";
 import { Main } from "./Styles/NewPaletteFormStyles";
-import { DrawerHeader } from "./Styles/NewPaletteFormStyles";
 import { drawerWidth } from "./Styles/constants";
+import { DrawerHeader } from "./Styles/NewPaletteFormStyles";
+import "./Styles/NewPaletteForm.css";
 import "./Styles/App.css";
 
-import { Page } from "./Page";
-
 export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [colors, setColors] = useState(palettes[0].colors);
   console.log("colors", colors);
 

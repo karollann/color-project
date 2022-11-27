@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Snackbar from "@mui/material/Snackbar";
 import "rc-slider/assets/index.css";
 import Slider from "rc-slider";
+
 import "./Styles/Navbar.css";
 
 export const Navbar = ({

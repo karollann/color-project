@@ -1,14 +1,14 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { Link } from "react-router-dom";
 import { PaletteMetaForm } from "./PaletteMetaForm";
-import { useState } from "react";
-import "./Styles/PaletteFormNav.css";
 import { AppBar } from "./Styles/PaletteFormNavStyles";
+import "./Styles/PaletteFormNav.css";
 
 export const PaletteFormNav = ({
   open,

@@ -30,8 +30,8 @@
   box-sizing: border-box;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(1, 100%);
-  grid-gap: 1.5%;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
 }
 
 .paletteList__deleteColor {
@@ -46,14 +46,14 @@
 
 @media only screen and (min-width: 576px) {
   .PaletteList-palettes {
-    grid-template-columns: repeat(2, 50%);
-    grid-gap: 5%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
   }
 }
 @media only screen and (min-width: 992px) {
   .PaletteList-palettes {
-    grid-template-columns: repeat(3, 33%);
-    grid-gap: 5%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
   }
   .PaletteList-nav-container {
     width: 50%;
