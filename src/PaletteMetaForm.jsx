@@ -34,7 +34,6 @@ export const PaletteMetaForm = ({
 
     savePalette(newPalette);
     navigate("/");
-    console.log("newpalette", newPalette);
   };
 
   useEffect(() => {

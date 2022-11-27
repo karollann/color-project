@@ -14,6 +14,7 @@ import { DraggableColorList } from "./DraggableColorList";
 import { PaletteFormNav } from "./PaletteFormNav";
 import { Page } from "./Page";
 import { Main } from "./Styles/NewPaletteFormStyles";
+import { seedColors } from "./seedColors";
 import { drawerWidth } from "./Styles/constants";
 import { DrawerHeader } from "./Styles/NewPaletteFormStyles";
 import "./Styles/NewPaletteForm.css";
@@ -21,14 +22,12 @@ import "./Styles/App.css";
 
 export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
   const [open, setOpen] = useState(true);
-  const [colors, setColors] = useState(palettes[0].colors);
-  console.log("colors", colors);
+  const [colors, setColors] = useState(seedColors[0].colors);
 
   const addRandomColor = () => {
-    const allColors = palettes.map((palette) => palette.colors).flat();
-    console.log("allColors", allColors);
+    const allColors = seedColors.map((palette) => palette.colors).flat();
 
-    const removedExistingColors = allColors.filter(
+    const remainedColors = allColors.filter(
       (colorObject) =>
         !colors.find(
           (paletteColor) =>
@@ -36,9 +35,8 @@ export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
             paletteColor.color === colorObject.color
         )
     );
-
-    let rand = Math.floor(Math.random() * allColors.length);
-    const randomColor = removedExistingColors[rand];
+    let rand = Math.floor(Math.random() * remainedColors.length - 1);
+    const randomColor = remainedColors[rand];
     setColors([...colors, randomColor]);
   };
 
@@ -52,8 +50,6 @@ export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
 
   const removeColor = (colorName) => {
     setColors(colors.filter((color) => color.name !== colorName));
-
-    console.log("remove color", colors);
   };
 
   const onSortEnd = ({ oldIndex, newIndex }) => {

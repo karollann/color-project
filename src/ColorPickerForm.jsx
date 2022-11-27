@@ -39,7 +39,7 @@ export const ColorPickerForm = ({ colors, setColors, paletteIsFull }) => {
         }}
         color={currentColor}
       />
-      <ValidatorForm onSubmit={addNewColor}>
+      <ValidatorForm onSubmit={addNewColor} instantValidate={false}>
         <TextValidator
           className="picker--colorNameInput"
           placeholder="Color Name"
