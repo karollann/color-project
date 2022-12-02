@@ -13,7 +13,6 @@ import { AppBar } from "./Styles/PaletteFormNavStyles";
 export const PaletteFormNav = ({
   open,
   handleDrawerOpen,
-  palettes,
   savePalette,
   colors,
 }) => {
@@ -65,7 +64,6 @@ export const PaletteFormNav = ({
           <PaletteMetaForm
             savePalette={savePalette}
             colors={colors}
-            palettes={palettes}
             openFormName={openFormName}
             setOpenFormName={setOpenFormName}
           />

@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-import { seedColors } from "./seedColors";
 import { PaletteList } from "./PaletteList";
 import { Palette } from "./Palette";
 import { SingleColorPalette } from "./SingleColorPalette";
 import { NewPaletteForm } from "./NewPaletteForm";
 import "./Styles/App.css";
+import { usePalettesContext } from "./Context";
 
 function App() {
   const location = useLocation();
 
-  const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
-
-  const [palettes, setPalettes] = useState(savedPalettes || seedColors);
+  const { palettes, setPalettes } = usePalettesContext();
 
   const savePalette = (newPalette) => {
     setPalettes([...palettes, newPalette]);
@@ -36,20 +34,16 @@ function App() {
       <Routes key={location.pathname}>
         <Route
           path="/palette/new"
-          element={
-            <NewPaletteForm savePalette={savePalette} palettes={palettes} />
-          }
+          element={<NewPaletteForm savePalette={savePalette} />}
         />
         <Route
           path="/"
-          element={
-            <PaletteList palettes={palettes} deletePalette={deletePalette} />
-          }
+          element={<PaletteList deletePalette={deletePalette} />}
         />
-        <Route path="/palette/:id" element={<Palette palettes={palettes} />} />
+        <Route path="/palette/:id" element={<Palette />} />
         <Route
           path="/palette/:paletteId/:colorId"
-          element={<SingleColorPalette palettes={palettes} />}
+          element={<SingleColorPalette />}
         />
       </Routes>
     </AnimatePresence>

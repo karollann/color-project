@@ -8,16 +8,18 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Picker from "@emoji-mart/react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import { usePalettesContext } from "./Context";
 
 export const PaletteMetaForm = ({
   savePalette,
   colors,
-  palettes,
   openFormName,
   setOpenFormName,
 }) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [newPaletteName, setNewPaletteName] = useState("");
+
+  const { palettes } = usePalettesContext();
 
   const handlePaletteChange = (event) => {
     setNewPaletteName(event.target.value);

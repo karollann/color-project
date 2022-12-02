@@ -8,8 +8,11 @@ import { Page } from "./Page";
 import { generatePalette } from "./colorHelpers";
 import "./Styles/Palette.css";
 import "./Styles/App.css";
+import { usePalettesContext } from "./Context";
 
-export const Palette = ({ palettes }) => {
+export const Palette = () => {
+  const { palettes } = usePalettesContext();
+
   const findPalette = (id) => {
     return palettes.find((palette) => palette.id === id);
   };
@@ -27,7 +30,7 @@ export const Palette = ({ palettes }) => {
 
   return (
     <Page>
-      <div className="Palette page">
+      <div className="Palette Page">
         <Navbar
           level={level}
           changeLevel={changeLevel}

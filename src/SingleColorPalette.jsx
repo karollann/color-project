@@ -6,10 +6,13 @@ import { Navbar } from "./Navbar";
 import { PaletteFooter } from "./PaletteFooter";
 import "./Styles/App.css";
 import { Page } from "./Page";
+import { usePalettesContext } from "./Context";
 
-export const SingleColorPalette = ({ palettes }) => {
+export const SingleColorPalette = () => {
   const { paletteId, colorId } = useParams();
   const [format, setFormat] = useState("hex");
+
+  const { palettes } = usePalettesContext();
 
   const findPalette = (id) => {
     return palettes.find((palette) => palette.id === id);
@@ -32,7 +35,7 @@ export const SingleColorPalette = ({ palettes }) => {
 
   return (
     <Page>
-      <div className="SingleColorPalette Palette page">
+      <div className="SingleColorPalette Palette Page">
         <Navbar setFormat={setFormat} format={format} />
         <div className="Palette__Colors ">
           {gatherShades(palette, colorId).map((color) => (

@@ -15,13 +15,16 @@ import { Page } from "./Page";
 import { MiniPalette } from "./MiniPalette";
 import "./Styles/App.css";
 import "./Styles/PaletteList.css";
+import { usePalettesContext } from "./Context";
 
-export const PaletteList = ({ palettes, deletePalette }) => {
+export const PaletteList = ({ deletePalette }) => {
   const [deletingId, setDeletingId] = useState(null);
+
+  const { palettes } = usePalettesContext();
 
   return (
     <Page>
-      <div className="PaletteList-main page">
+      <div className="PaletteList-main Page">
         <div className="PaletteList__NavContainer">
           <nav className="PaletteList-nav">
             <h1>React colors</h1>

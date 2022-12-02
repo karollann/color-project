@@ -20,7 +20,7 @@ import { DrawerHeader } from "./Styles/NewPaletteFormStyles";
 import "./Styles/NewPaletteForm.css";
 import "./Styles/App.css";
 
-export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
+export const NewPaletteForm = ({ maxColors = 20, savePalette }) => {
   const [open, setOpen] = useState(true);
   const [colors, setColors] = useState(seedColors[0].colors);
 
@@ -60,11 +60,10 @@ export const NewPaletteForm = ({ maxColors = 20, savePalette, palettes }) => {
 
   return (
     <Page>
-      <Box sx={{ display: "flex" }} className="page">
+      <Box sx={{ display: "flex" }} className="Page">
         <PaletteFormNav
           open={open}
           handleDrawerOpen={handleDrawerOpen}
-          palettes={palettes}
           savePalette={savePalette}
           colors={colors}
         />
