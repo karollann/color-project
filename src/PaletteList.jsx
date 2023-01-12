@@ -75,6 +75,10 @@ export const PaletteList = ({ deletePalette }) => {
             </ListItem>
           </List>
         </Dialog>
+        <p style={{ color: "white", margin: "32px" }}>
+          Built by Karol Lann Vel Lace for learning purposes. Based on The
+          Modern React Bootcamp Course by Colt Steele.
+        </p>
       </div>
     </Page>
   );

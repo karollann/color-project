@@ -1,8 +1,9 @@
 .PaletteList-main {
   height: 100vh;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   background-color: #1c0433;
   background-image: url("bg.svg");
   /* background by SVGBackgrounds.com */
