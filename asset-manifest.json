@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/color-project/static/css/main.28652c80.css",
+    "main.js": "/color-project/static/js/main.7157c5d7.js",
+    "static/media/bg.svg": "/color-project/static/media/bg.9508c41d6d8370928343.svg",
+    "index.html": "/color-project/index.html",
+    "main.28652c80.css.map": "/color-project/static/css/main.28652c80.css.map",
+    "main.7157c5d7.js.map": "/color-project/static/js/main.7157c5d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.28652c80.css",
+    "static/js/main.7157c5d7.js"
+  ]
+}
