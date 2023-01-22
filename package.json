@@ -1,7 +1,7 @@
 {
   "name": "color-project",
   "version": "0.1.0",
-  "homepage": ".",
+  "homepage": "https://karollann.github.io/color-project",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
